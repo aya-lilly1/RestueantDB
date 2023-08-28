@@ -1,0 +1,43 @@
+﻿@model EmailConfirmMV 
+@{
+    ViewData["Title"] = "Confirm Email";
+}
+<div class="container">
+    <div class="row text-danger">
+        <div class="col-md-4"> 
+            @if(Model.EmailVerified == true)
+            {
+                <div class="alert alert-success" role="alert">
+                    <p> Your email has been verified successfully</p>
+
+                </div>
+            }
+            else
+            {
+                @if (Model.EmailSent == true)
+                {
+                    <p> Your email confirmation link has been sent to your registered email address</p>
+                }
+                else
+                {
+                    <p>We have sent you an email containing a confirmation link, click on it to be able to log in to your account</p>
+                }
+                <form method="post"> 
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Email" >
+                        <p > If you do not receive any confirmation link in your email, click on the button</p>
+                        <div class="form-group"> 
+                            <input type="submit" value="Resend Confirmation Link" class="btn btn-outline-primary">
+                        </div>
+                    </form>
+                    <div class="alert alert-danger" role="alert">
+                         <p>Somthing Error</p>
+
+                    </div>
+                
+                  
+            }
+        </div>
+     </div>
+</div>
+

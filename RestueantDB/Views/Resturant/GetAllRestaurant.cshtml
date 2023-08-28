@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "AllRestaurant";
+}
+@model IEnumerable<ResturantMV>
+
+<div class="container">
+    <h3 class="display-4 d-inline col-10 mr-5 mt-1">
+        All  Our Resturant
+    </h3>
+            <button type="button" class=" btn btn-warning col-2 mt-0 ml-5 " data-toggle="ajax-model" data-target="#addResturant" data-url="@Url.Action("AddResturant")">Add New Resturant</button>
+
+ 
+    <div class="row">
+   
+
+ @foreach( var rest in Model){
+            <div class="col-md-4 ">
+                <div class="card mb-1  box-shadow" style="width: 95%;">
+                    
+
+                          @if(@rest.ImageURL != null)
+                            {
+                    
+                               <img class="card-img-top " src="@rest.ImageURL" alt="Card image cap" data-holder-rendered="true">
+                            }
+                    
+
+                 
+                    <div class="card-body">
+                    <h5 class="card-title d-inline">@rest.Name</h5>
+                     <small class="ml-5  d-inline">@rest.Address</small>
+                  <p class="card-text">@rest.Details</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  <a  asp-action="ShowDetails" asp-controller="Resturant" asp-route-Id="@rest.Id"  class="btn btn-warning align-items-center">Show More</a>
+                   
+                  </div>
+                </div>
+              </div>
+        </div>
+            }
+    </div>
+ </div>

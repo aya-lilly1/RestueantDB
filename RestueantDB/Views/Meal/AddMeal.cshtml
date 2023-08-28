@@ -1,0 +1,54 @@
+﻿@model RestueantDB.ModelViews.MealMV
+
+@{
+    ViewData["Title"] = "AddMeal";
+}
+
+<h1>AddMeal</h1>
+
+<h4>MealMV</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <hr />
+        @if(ViewBag.IsSuccess)    
+         {    
+             <div class="alert alert-success" role="alert">    
+                     Addition completed successfully. Click <a  asp-action="ShowMealDetails" asp-controller="’Meal" asp-route-Id="@ViewBag.Id" >here</a>  to view Meal details
+             </div>
+         }
+        <form asp-action="AddMeal" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+           <input type="hidden" asp-for="@Model.ResturantId" value="@ViewBag.resId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details" class="control-label"></label>
+                <input asp-for="Details" class="form-control" />
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgeFile" class="control-label"></label>
+                <input type="file" asp-for="ImgeFile" class="form-control" />
+                <span asp-validation-for="ImgeFile" class="text-danger"></span>
+            </div>
+           
+            
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@using RestueantDB.Helper
+@using System.Security.Claims
+@{
+//   var req = (User.Identity as ClaimsIdentity).Claims.Where(c => c.Value == "Name").FirstOrDefault();
+//string reqValue = req.Value;
+}
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.FindFirst("Name").Value </a>
+    </li>
+@*    <li class="nav-item">
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <a  type="submit" class="nav-link btn btn-link text-dark">Logout</a>
+        </form>
+         <a   class="nav-link btn btn-link text-dark" asp-action="LogOut" asp-controller="Account" style="background-color:orange;" >Logout</a>
+    </li>*@
+
+        <li class="nav-item"id="logOut">
+        <a  class="btn font-weight-bold " asp-action="LogOut"   asp-controller="Account" style="background-color:orange;">Logout</a>
+    </li>
+    <li class="nav-item" >
+        <a class="btn font-weight-bold  mr-2 Register  "   asp-action="ChangePassword" asp-controller="Account" style="background-color:orange;">ChangePassword</a>
+    </li>
+}
+else
+{
+  @*  <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>*@
+
+    <li class="nav-item" id="reg">
+        <a class="btn font-weight-bold  mr-2 Register  "  asp-area="Identity" asp-action="SignUp" asp-controller="Account" style="background-color:orange;">Register</a>
+    </li>
+    <li class="nav-item"id="log">
+        <a  class="btn font-weight-bold  Login" asp-action="Login"  asp-route-returnUrl="@Context.Request.Path"   asp-controller="Account"  style="background-color:orange;">Login</a>
+    </li>
+}
+</ul>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+//$("#reg").click(function(){
+//    alert("It will be developed later");
+//});
+//$("#log").click(function(){
+//    alert("It will be developed later")
+//})
+
+</script>
+<script src="https://kit.fontawesome.com/c9d2fae6c7.js" crossorigin="anonymous"></script>
+

@@ -1,0 +1,70 @@
+﻿@model RestueantDB.ModelViews.ResturantMV
+
+@{
+    ViewData["Title"] = "ShowDetails";
+}
+
+<h3 class="display-4">ShowDetails</h3>
+
+<div class="container">
+  
+  
+    <div class="row">
+  
+      <div class="col-md-4">
+        <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJKaFsssXjhu5QlUnKexHb2yg1TnMuOWKIg&usqp=CAU/750x500" alt="Card image cap">
+      </div>
+  
+      <div class="col-md-6">
+        <h3 class="my-3"> @Model.Name</h3>
+        <p>@Model.Details</p>
+        <h3 class="my-3">Resturant Details</h3>
+        <ul>
+          <li>@Model.Address</li>
+          <li>@Model.Phone</li>
+        </ul>
+    
+      </div>
+      <div class="col-md-2" >
+           <button class=" w-100 h-15 mb-1 btn btn-warning d-block"  type="button" asp-action="" asp-controller="Meal" asp-route-Id="@Model.Id">
+               show Mene </button>
+     
+           <a class=" w-100  h-15 btn btn-warning d-block" type="button" asp-action="AddMeal" asp-controller="Meal" asp-route-Id="@Model.Id"> 
+               Add Meal</a>
+      </div>
+    
+     
+  
+    <h3 class="my-4">Related Projects</h3>
+  
+    <div class="row">
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+            </a>
+      </div>
+  
+    </div>
+
+  
+  </div>
+ </div>
